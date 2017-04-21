@@ -2,36 +2,36 @@
 call plug#begin('~/.vim/bundle')
 
 " Common settings
-" set nocompatible
-" set expandtab
-" set smarttab
-" set cindent
-" set ts=4
-" set sts=4
-" set sw=4
-" set lbr
-" set wrap
-" set nu
-" set ru
-" set et
-" set showmatch
-" set showcmd
-" set showmode
-" set hlsearch
-" set autoread
-" set cursorline
-" set cursorcolumn
-" set modifiable
-" set background=dark
-" set t_Co=256
-" set fenc=utf-8
-" set encoding=utf-8
-" set fileencoding=utf-8
-" set fileencodings=utf-8,gbk,cp936,latin-1
-" set foldenable
-" set foldmethod=syntax
-" set foldcolumn=0
-" set modifiable
+set nocompatible
+set expandtab
+set smarttab
+set cindent
+set ts=4
+set sts=4
+set sw=4
+set lbr
+set wrap
+set nu
+set ru
+set et
+set showmatch
+set showcmd
+set showmode
+set hlsearch
+set autoread
+set cursorline
+set cursorcolumn
+set modifiable
+set background=dark
+set t_Co=256
+set fenc=utf-8
+set encoding=utf-8
+set fileencoding=utf-8
+set fileencodings=utf-8,gbk,cp936,latin-1
+set foldenable
+set foldmethod=syntax
+set foldcolumn=0
+set modifiable
 
 "set pastetoggle=<F4>
 let home=$HOME
@@ -115,6 +115,7 @@ Plug 'tpope/vim-markdown'
 
 " Json
 Plug 'elzr/vim-json'
+Plug 'hjson/vim-hjson'
 
 " Html, css
 Plug 'tpope/vim-haml'
