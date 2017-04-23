@@ -116,6 +116,7 @@ Plug 'tpope/vim-markdown'
 " Json
 Plug 'elzr/vim-json'
 Plug 'hjson/vim-hjson'
+Plug 'gutenye/json5.vim'
 
 " Html, css
 Plug 'tpope/vim-haml'
