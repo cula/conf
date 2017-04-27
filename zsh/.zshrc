@@ -3,13 +3,25 @@ export MANPATH=/opt/local/share/man:$MANPATH
 export EDITOR=/opt/local/bin/vim
 export LC_ALL="zh_CN.UTF-8"
 
+HISTFILE=~/.zsh_history
+setopt hist_ignore_all_dups
+setopt hist_find_no_dups
+setopt share_history
+
 source ~/.zplug/init.zsh
 
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-autosuggestions"
+
 zplug "zsh-users/zsh-history-substring-search"
+
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "srijanshetty/zsh-pip-completion"
+
+zplug "junegunn/fzf-bin", from:gh-r, as:command, rename-to:fzf
+zplug "junegunn/fzf", as:command, use:"bin/fzf-tmux"
+
+zplug "lukechilds/zsh-nvm"
 
 # Supports oh-my-zsh plugins and the like
 # zplug "plugins/git",   from:oh-my-zsh
@@ -42,3 +54,5 @@ zplug load
 
 # poerline
 source /opt/local/Library/Frameworks/Python.framework/Versions/Current/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
