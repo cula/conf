@@ -1,12 +1,12 @@
-export PATH=/opt/local/bin/python_bin:/opt/local/bin:/opt/local/sbin:$PATH
-export MANPATH=/opt/local/share/man:$MANPATH
-export EDITOR=/opt/local/bin/vim
-export LC_ALL="zh_CN.UTF-8"
+source /opt/local/etc/profile
 
+# history
 HISTFILE=~/.zsh_history
-setopt hist_ignore_all_dups
-setopt hist_find_no_dups
+SAVEHIST=1000000
+HISTSIZE=1000000
 setopt share_history
+setopt inc_append_history
+bindkey '^R' history-incremental-search-backward
 
 source ~/.zplug/init.zsh
 
@@ -17,9 +17,6 @@ zplug "zsh-users/zsh-history-substring-search"
 
 zplug "zsh-users/zsh-syntax-highlighting"
 zplug "srijanshetty/zsh-pip-completion"
-
-zplug "junegunn/fzf-bin", from:gh-r, as:command, rename-to:fzf
-zplug "junegunn/fzf", as:command, use:"bin/fzf-tmux"
 
 zplug "lukechilds/zsh-nvm"
 
@@ -54,5 +51,3 @@ zplug load
 
 # poerline
 source /opt/local/Library/Frameworks/Python.framework/Versions/Current/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

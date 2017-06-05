@@ -53,11 +53,6 @@ Plug 'mhinz/vim-grepper'
 " auto pairs
 Plug 'jiangmiao/auto-pairs'
 
-" Color
-Plug 'altercation/vim-colors-solarized'
-set background=dark
-colorscheme solarized
-
 " Nerd tree related plugins config
 Plug 'scrooloose/nerdtree'
 map <F3> :NERDTreeToggle<CR>
@@ -96,6 +91,9 @@ let g:airline_powerline_fonts = 1
 Plug 'vim-airline/vim-airline-themes'
 let g:airline_theme='solarized'
 
+" fzf
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
 " snippets
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -115,6 +113,7 @@ Plug 'tpope/vim-markdown'
 
 " Json
 Plug 'elzr/vim-json'
+au BufRead,BufNewFile,FileType json,jsonp,json5 set sw=2 sts=2 ts=8
 Plug 'hjson/vim-hjson'
 Plug 'gutenye/json5.vim'
 
@@ -166,8 +165,8 @@ au BufRead,BufNewFile,FileType cpp,h nnoremap <F5> :call CompileRunGpp()<CR>
 
 " JS
 au BufRead,BufNewFile,FileType js,javascript,es6,es7 set colorcolumn=120
-au BufRead,BufNewFile,FileType js,javascript,es6,es7 nnoremap <F5> :!babel-node --presets node7 %<CR>
-au BufRead,BufNewFile,FileType js,javascript,es6,es7 nnoremap <F6> :!babel-node debug --presets node7 %<CR>
+au BufRead,BufNewFile,FileType js,javascript,es6,es7 nnoremap <F5> :!babel-node %<CR>
+au BufRead,BufNewFile,FileType js,javascript,es6,es7 nnoremap <F6> :!babel-node debug %<CR>
 au BufRead,BufNewFile,FileType js,javascript,es6,es7 nnoremap <buffer> <C-w>f <Plug>NodeVSplitGotoFile
 
 " Python
