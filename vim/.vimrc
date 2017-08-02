@@ -22,24 +22,31 @@ set autoread
 set cursorline
 set cursorcolumn
 set modifiable
-set background=dark
-set t_Co=256
 set fenc=utf-8
 set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8,gbk,cp936,latin-1
 set foldenable
-set foldmethod=syntax
-set foldcolumn=0
+set foldmethod=indent
+set foldlevel=4
 set modifiable
+set background=dark
 
 "set pastetoggle=<F4>
 let home=$HOME
 
 " Plugins and their settings
 
+" colors
+Plug 'altercation/vim-colors-solarized'
+
+
 " show indent
 Plug 'nathanaelkane/vim-indent-guides'
+let g:indent_guides_enable_on_vim_startup = 1
+
+" ag
+Plug 'rking/ag.vim'
 
 " Mru open the recent files
 Plug 'vim-scripts/mru.vim'
@@ -52,6 +59,9 @@ Plug 'mhinz/vim-grepper'
 
 " auto pairs
 Plug 'jiangmiao/auto-pairs'
+
+" surround
+Plug 'tpope/vim-surround'
 
 " Nerd tree related plugins config
 Plug 'scrooloose/nerdtree'
@@ -91,9 +101,6 @@ let g:airline_powerline_fonts = 1
 Plug 'vim-airline/vim-airline-themes'
 let g:airline_theme='solarized'
 
-" fzf
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-
 " snippets
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -117,11 +124,16 @@ au BufRead,BufNewFile,FileType json,jsonp,json5 set sw=2 sts=2 ts=8
 Plug 'hjson/vim-hjson'
 Plug 'gutenye/json5.vim'
 
-" Html, css
+" Html, css, js
 Plug 'tpope/vim-haml'
+Plug 'pangloss/vim-javascript'
 
 " Nodejs
 Plug 'moll/vim-node'
+
+" react
+Plug 'mxw/vim-jsx'
+let g:jsx_ext_required = 0
 
 " Ruby
 Plug 'tpope/vim-rails'
@@ -178,3 +190,6 @@ let g:pymode_lint_ignore="C0111,W0621,W0703,W0403"
 
 " Initialize plugin system
 call plug#end()
+
+" Must be after the end
+colorscheme solarized
