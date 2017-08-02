@@ -47,6 +47,8 @@ let g:indent_guides_enable_on_vim_startup = 1
 
 " ag
 Plug 'rking/ag.vim'
+let g:ag_working_path_mode="r"
+map <F2> :Ag! <cword><CR>
 
 " Mru open the recent files
 Plug 'vim-scripts/mru.vim'
