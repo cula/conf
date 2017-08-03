@@ -48,7 +48,7 @@ let g:indent_guides_enable_on_vim_startup = 1
 " ag
 Plug 'rking/ag.vim'
 let g:ag_working_path_mode="r"
-map <F2> :Ag! <cword><CR>
+map <F2> :Ag! 
 
 " Mru open the recent files
 Plug 'vim-scripts/mru.vim'
@@ -101,7 +101,7 @@ Plug 'vim-airline/vim-airline'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 Plug 'vim-airline/vim-airline-themes'
-let g:airline_theme='solarized'
+let g:airline_theme='monochrome'
 
 " snippets
 Plug 'SirVer/ultisnips'
@@ -116,6 +116,7 @@ let g:UltiSnipsEditSplit="vertical"
 
 " auto complete
 Plug 'Valloric/YouCompleteMe'
+Plug 'ternjs/tern_for_vim'
 
 " Markdown
 Plug 'tpope/vim-markdown'
