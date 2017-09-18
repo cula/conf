@@ -2,10 +2,11 @@ source /opt/local/etc/profile
 
 # history
 HISTFILE=~/.zsh_history
-SAVEHIST=1000000
-HISTSIZE=1000000
+SAVEHIST=1000
+HISTSIZE=1000
 setopt share_history
 setopt inc_append_history
+setopt hist_ignore_all_dups
 bindkey '^R' history-incremental-search-backward
 
 zmodload zsh/zprof
@@ -16,9 +17,9 @@ source ~/.zplug/init.zsh
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-autosuggestions"
 
+zplug "zsh-users/zsh-syntax-highlighting"
 zplug "zsh-users/zsh-history-substring-search"
 
-zplug "zsh-users/zsh-syntax-highlighting"
 zplug "srijanshetty/zsh-pip-completion"
 
 # This plugin support nvm lazy load
@@ -28,6 +29,12 @@ zplug "lukechilds/zsh-nvm"
 # oh-my-zsh plugins
 zplug "plugins/z",   from:oh-my-zsh
 
+# fzf
+# Caution! This need extra-installation
+zplug "~/.fzf", from:local
+FZF_TMUX=1
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
@@ -36,10 +43,9 @@ if ! zplug check --verbose; then
     fi
 fi
 
-autoload -U compinit; compinit
-
 # Then, source plugins and add commands to $PATH
 zplug load
 
 # powerline
 source /opt/local/Library/Frameworks/Python.framework/Versions/Current/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+
