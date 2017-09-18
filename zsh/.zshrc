@@ -27,13 +27,15 @@ zplug "srijanshetty/zsh-pip-completion"
 zplug "lukechilds/zsh-nvm"
 
 # oh-my-zsh plugins
-zplug "plugins/z",   from:oh-my-zsh
+zplug "plugins/z", from:oh-my-zsh
 
 # fzf
 # Caution! This need extra-installation
 zplug "~/.fzf", from:local
 FZF_TMUX=1
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+zplug "andrewferrier/fzf-z"
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
