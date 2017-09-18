@@ -34,6 +34,7 @@ zplug "plugins/z", from:oh-my-zsh
 zplug "~/.fzf", from:local
 FZF_TMUX=1
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+zplug "uvaes/fzf-marks"
 
 zplug "andrewferrier/fzf-z"
 
@@ -50,4 +51,3 @@ zplug load
 
 # powerline
 source /opt/local/Library/Frameworks/Python.framework/Versions/Current/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
-
