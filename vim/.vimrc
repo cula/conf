@@ -40,11 +40,6 @@ let home=$HOME
 " colors
 Plug 'altercation/vim-colors-solarized'
 
-
-" show indent
-Plug 'nathanaelkane/vim-indent-guides'
-let g:indent_guides_enable_on_vim_startup = 1
-
 " ag
 Plug 'rking/ag.vim'
 let g:ag_working_path_mode="r"
@@ -58,9 +53,6 @@ highlight link MRUFileName LineNr
 
 " Grepper
 Plug 'mhinz/vim-grepper'
-
-" auto pairs
-Plug 'jiangmiao/auto-pairs'
 
 " surround
 Plug 'tpope/vim-surround'
@@ -103,23 +95,18 @@ let g:airline_powerline_fonts = 1
 Plug 'vim-airline/vim-airline-themes'
 let g:airline_theme='monochrome'
 
-" snippets
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-" Trigger configuration. Do not use <tab> if you use
-" https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
-
 " auto complete
 Plug 'Valloric/YouCompleteMe'
 Plug 'ternjs/tern_for_vim'
 
 " Markdown
-Plug 'tpope/vim-markdown'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+Plug 'iamcco/mathjax-support-for-mkdp'
+Plug 'iamcco/markdown-preview.vim'
+let g:mkdp_path_to_chrome = 'open -a "Google Chrome"'
+let g:mkdp_auto_start = 1
+let g:mkdp_auto_close = 1
 
 " Json
 Plug 'elzr/vim-json'
@@ -127,9 +114,21 @@ au BufRead,BufNewFile,FileType json,jsonp,json5 set sw=2 sts=2 ts=8
 Plug 'hjson/vim-hjson'
 Plug 'gutenye/json5.vim'
 
-" Html, css, js
-Plug 'tpope/vim-haml'
+" Html
+Plug 'othree/html5.vim'
+
+" Css
+Plug 'groenewege/vim-less'
+
+" Js
 Plug 'pangloss/vim-javascript'
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_ngdoc = 1
+let g:javascript_plugin_flow = 1
+augroup javascript_folding
+    au!
+    au FileType javascript setlocal foldmethod=syntax
+augroup END
 
 " Nodejs
 Plug 'moll/vim-node'
@@ -153,43 +152,16 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers = ['pep8']
 let g:syntastic_javascript_checkers = ['eslint']
 
-" Python
-Plug 'python-mode/python-mode'
-let g:pymode_lint = 0
-
-
 " Bash
 au BufRead,BufNewFile,FileType sh nnoremap <F5> :!bash % <CR>
 
-
-" C
-au BufRead,BufNewFile,FileType c,h set ts=8 sts=8 sw=0 noexpandtab fdm=indent
-func! CompileRunGcc()
-    exec "!gcc % -o %< && ./%<"
-endfunc
-au BufRead,BufNewFile,FileType c,h nnoremap <F5> :call CompileRunGcc()<CR>
-
-
-" C++
-au BufRead,BufNewFile,FileType cpp,h set ts=8 sts=8 sw=0 noexpandtab fdm=indent
-func! CompileRunGpp()
-    "exec "w"
-    exec "!g++ % -o %< && ./%<"
-endfunc
-au BufRead,BufNewFile,FileType cpp,h nnoremap <F5> :call CompileRunGpp()<CR>
-
-
-" JS
-au BufRead,BufNewFile,FileType js,javascript,es6,es7 set colorcolumn=120
-au BufRead,BufNewFile,FileType js,javascript,es6,es7 nnoremap <F5> :!babel-node %<CR>
-au BufRead,BufNewFile,FileType js,javascript,es6,es7 nnoremap <F6> :!babel-node debug %<CR>
-au BufRead,BufNewFile,FileType js,javascript,es6,es7 nnoremap <buffer> <C-w>f <Plug>NodeVSplitGotoFile
-
 " Python
 " python-mode
+Plug 'python-mode/python-mode'
 au BufRead,BufNewFile,FileType py,pyc,python nnoremap <F5> :!python %<CR>
 :set completeopt-=preview
 let g:pymode_rope = 0
+let g:pymode_lint = 0
 let g:pymode_lint_ignore="C0111,W0621,W0703,W0403"
 
 " Initialize plugin system
