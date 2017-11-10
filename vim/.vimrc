@@ -39,11 +39,10 @@ let home=$HOME
 
 " colors
 Plug 'altercation/vim-colors-solarized'
+" let g:solarized_termcolors=256
 
-" ag
-Plug 'rking/ag.vim'
-let g:ag_working_path_mode="r"
-map <F2> :Ag! 
+" auto pairs
+Plug 'jiangmiao/auto-pairs'
 
 " Mru open the recent files
 Plug 'vim-scripts/mru.vim'
@@ -53,6 +52,9 @@ highlight link MRUFileName LineNr
 
 " Grepper
 Plug 'mhinz/vim-grepper'
+map <F2> :Grepper <CR>
+let g:grepper               = {}
+let g:grepper.tools         = ['grep', 'git', 'ag']
 
 " surround
 Plug 'tpope/vim-surround'
